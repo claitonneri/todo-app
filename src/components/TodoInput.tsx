@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 interface TodoInputProps {
@@ -11,7 +11,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
 
   function handleAddNewTask() {
     if (!task) 
-      return;
+      return Alert.alert('Task em branco', 'Você não pode cadastrar uma task em branco');
 
     addTask(task);
     setTask('');
